@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Работа с электронной почтой через Gmail +bot: упростите управление письмами и групповые онлайн-общения.">
+    <meta name="theme-color" content="#4285F4">
+    <title>Gmail +bot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+</head>
+<body>
+    <!-- Вступительное окно -->
+    <div id="introSection" class="intro-section">
+        <header class="intro-header">
+            <h1 class="header-title">
+                <span class="gmail">Gmail</span> <span class="highlight">+bot</span>
+            </h1>
+            <div class="right-header-buttons">
+                <button id="loginIntroBtn">Вход</button>
+                <button id="signupIntroBtn">Создать аккаунт</button>
+            </div>
+        </header>
+
+        <div class="intro-left">
+            <h1>
+                <span class="gmail">Gmail</span> <span class="highlight">+bot</span>
+            </h1>
+            <p>Простой инструмент для работы с файлами и общения онлайн. Легко интегрируйтесь и работайте быстрее.</p>
+        </div>
+    </div>
+
+    <!-- Основное окно -->
+    <header id="mainHeader" style="display: none;">
+        <div class="header-content">
+            <h1 class="header-title smaller-title">
+                <span class="gmail">Gmail</span> <span class="highlight">+bot</span>
+            </h1>
+            <!-- Строка поиска -->
+            <input class="search-bar" type="text" placeholder="Поиск в сообщениях" />
+            <!-- Аватар пользователя -->
+            <div id="profileIcon" class="profile-icon">👤</div>
+        </div>
+    </header>
+
+    <div id="mainMenu" class="main-menu" style="display: none;">
+        <!-- Левая панель -->
+        <aside class="sidebar">
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <span class="menu-icon">📥</span>
+                    <span class="menu-text">Входящие</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">⭐</span>
+                    <span class="menu-text">Помеченные</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">📤</span>
+                    <span class="menu-text">Отправленные</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">📝</span>
+                    <span class="menu-text">Черновики</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">🗑️</span>
+                    <span class="menu-text">Корзина</span>
+                </li>
+                <li class="menu-item">
+                    <span class="menu-icon">📂</span>
+                    <span class="menu-text">Категории</span>
+                </li>
+
+            </ul>
+        </aside>
+
+        <main id="contentSection" class="content">
+            <!-- Здесь будет отображаться основной контент -->
+        </main>
+    </div>
+    <!-- Блок homeSection удален -->
+
+    <div class="content">
+  <div class="popup hidden" id="inboxPopup">
+    <div class="popup-header">
+      <h2>Входящие</h2>
+      <button class="close-btn" onclick="closePopup()">×</button>
+    </div>
+    <div class="popup-body">
+      <p>Здесь вы увидите последние сообщения, уведомления или данные, которые относятся к "Входящим".</p>
+    </div>
+  </div>
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

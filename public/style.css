@@ -1,0 +1,466 @@
+/* Подключаем стили через Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Минимальный стиль интерфейса Gmail */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #333;
+}
+
+/* Вступительное окно */
+.intro-section {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+}
+
+.intro-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовок Gmail +bot */
+.header-title {
+    font-family: 'Poppins', sans-serif; /* Новый шрифт Poppins */
+    font-size: 1.8rem;                 /* Уменьшенный размер шрифта */
+    font-weight: 700;                 /* Жирный стиль */
+    margin: 0;
+}
+
+.header-title .gmail {
+    color: #000;       /* Чёрный цвет для Gmail */
+    font-weight: 900; /* Более жирный стиль */
+}
+
+.header-title .highlight {
+    color: #4285F4; /* Голубой акцент как у Gmail */
+    font-weight: 700;
+}
+
+.intro-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    max-width: 600px;
+}
+
+.intro-left h1 {
+    font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: #000;
+}
+
+.intro-left p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.5;
+    margin-top: 20px;
+}
+
+.highlight {
+    color: #4285F4;
+}
+
+/* Header основной части */
+header {
+    background: #fff;
+    color: #4285F4;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.right-header-buttons button {
+    background: none;
+    border: 1px solid #4285F4;
+    color: #4285F4;
+    padding: 8px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.right-header-buttons button:hover {
+    background: #4285F4;
+    color: white;
+}
+
+/* Модальные окна для входа и регистрации */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    z-index: 10000;
+    border-radius: 10px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-form h2 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.auth-form input,
+.auth-form button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.auth-form button {
+    cursor: pointer;
+    background-color: #4285F4;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.auth-form button:hover {
+    background-color: #1a73e8;
+}
+
+.auth-form #closeLoginForm,
+.auth-form #closeSignupForm {
+    background-color: #f4f4f4;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+/* Стили для боковой панели */
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #555;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu-item:hover {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+    border-radius: 12px;
+}
+
+.menu-item span {
+    margin-left: 10px;
+}
+
+.menu-item.active {
+    background-color: #1a73e8;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+/* Заголовок в основном меню */
+header {
+    background: white;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+
+
+
+/* Добавляем новую левую панель */
+.left-sidebar {
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 60px; /* Под основным заголовком страницы */
+    bottom: 0;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    transition: transform 0.3s ease; /* Анимация выдвижения панели */
+    transform: translateX(-100%); /* Изначально панель скрыта */
+}
+
+.left-sidebar.open {
+    transform: translateX(0); /* Внешний класс для выдвижения панели */
+}
+
+.left-sidebar .menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.left-sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #555;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.left-sidebar .menu-item:hover {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+    border-radius: 12px;
+}
+
+.left-sidebar .menu-item span {
+    margin-left: 10px;
+}
+
+.left-sidebar .menu-item.active {
+    background-color: #1a73e8;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+/* Добавляем кнопку для открытия панели */
+.sidebar-toggle {
+    background: none;
+    border: none;
+    color: #4285F4;
+    position: fixed;
+    top: 65px;
+    left: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 110;
+}
+
+.sidebar-toggle:hover {
+    color: #1a73e8;
+}
+
+/* CSS переменные для темы */
+:root {
+    --color-primary: #4285F4;
+    --color-dark: #333;
+    --color-background-light: #fff;
+    --color-error: #e04949;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif; /* Добавлен fallback */
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background-light); /* Используем CSS переменные */
+    color: var(--color-dark);
+}
+
+@media (max-width: 768px) {
+    .intro-section {
+        flex-direction: column-reverse; /* Перевернутая структура */
+        height: auto;
+    }
+
+    .right-header-buttons button {
+        margin: 5px 5%; /* Кнопки на весь экран */
+        width: 90%;
+    }
+}
+
+.modal {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    animation: slideIn 0.5s ease; /* Анимация */
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-form button {
+    cursor: pointer;
+    background-color: var(--color-primary);
+    color: white;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+/* Стили для элементов левой панели */
+
+.sidebar {
+    position: fixed;
+    top: 75px; /* Отступ панели после шапки */
+    left: 0;
+    height: calc(100% - 60px); /* Полная высота минус шапка */
+    width: 60px;
+    background-color: #ffffff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-x: hidden;
+    transition: width 0.4s ease; /* Плавное раскрытие */
+    z-index: 1000;
+}
+
+.sidebar:hover {
+    width: 280px; /* Ширина панели при наведении */
+}
+
+.menu-list {
+    list-style: none; /* Убираем маркеры */
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    display: flex; /* Используем flex для выравнивания содержимого по одной линии */
+    align-items: center;
+    padding: 30px 15px; /* Добавляем более точный отступ внутри элемента */
+    cursor: pointer;
+    font-size: 1rem; /* Размер текста */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #555;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap; /* Отключаем перенос текста */
+}
+
+.menu-item:hover {
+    background-color: #e8f0fe; /* Цвет фона элемента при наведении */
+    color: #1a73e8; /* Цвет текста при наведении */
+    border-radius: 12px; /* Скругленные углы */
+}
+
+.menu-icon {
+    font-size: 1.2rem; /* Размер иконок */
+    margin-right: 15px; /* Отодвигаем иконки от текста */
+    margin-left: 50px; /* Отодвигаем иконки от левого края */
+    flex-shrink: 0; /* Убедимся, что иконки не сжимаются при уменьшении панели */
+}
+
+.menu-item span {
+    margin-left: 5px; /* Дополнительный отступ текста */
+    flex-grow: 1;
+}
+
+.menu-item.active {
+    background-color: #1a73e8; /* Активный цвет */
+    color: white; /* Белый цвет текста */
+    font-weight: bold; /* Жирный текст активного пункта меню */
+    border-radius: 50px; /* Скругленные рамки */
+}
+
+
+/*     Окно Входящие в основной части окна                                    */
+
+.content {
+    padding: 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1001; /* Поверх всех элементов */
+    display: none; /* Скрыто по умолчанию */
+    flex-direction: column;
+}
+
+.popup-header {
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1A73E8;
+    color: white;
+    font-size: 18px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.popup-body {
+    padding: 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.hidden {
+    display: none;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/*     Окно Входящие в основной части окна                        _            */
