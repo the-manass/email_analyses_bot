@@ -101,3 +101,5 @@ app.post('/api/register', async (req, res) => {
         return res.status(400).json({ message: 'Некорректный email.' });
     }
 });
+
+module.exports = app;
